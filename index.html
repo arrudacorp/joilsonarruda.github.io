@@ -981,7 +981,7 @@
             <div class="about-content">
                 <div class="about-img">
                     <!-- Imagem de perfil - você pode substituir por uma sua -->
-                    <img src="img/joy_perfil.jpg" alt="Joilson Arruda - Desenvolvedor">
+                    <img src="img/perfil.jpg" alt="Joilson Arruda - Desenvolvedor" height="280px">
                 </div>
                 <div class="about-text">
                     <p>Olá! Sou Joilson Arruda, um desenvolvedor com experiência em criar soluções digitais para web, mobile e desktop.</p>
@@ -1054,6 +1054,68 @@
             </div>
             <div class="portfolio-grid">
                 <!-- Projeto 1 - CORRIGIDO -->
+                <div class="portfolio-item" data-category="mobile">
+                    <div class="portfolio-carousel fixed-height">
+                        <div class="carousel-container" id="carousel-6">
+                            <div class="carousel-slide active">
+                                <img src="img/meutempo_1.jpg" alt="Login" onclick="openModal('img/meutempo_1.jpg', 'carousel-6', 0)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/meutempo_2.jpg" alt="Formulario" onclick="openModal('img/meutempo_2.jpg', 'carousel-6', 1)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/meutempo_3.jpg" alt="Menu" onclick="openModal('img/meutempo_3.jpg', 'carousel-6', 2)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/meutempo_4.jpg" alt="Menu" onclick="openModal('img/meutempo_4.jpg', 'carousel-6', 3)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/meutempo_5.jpg" alt="Menu" onclick="openModal('img/meutempo_5.jpg', 'carousel-6', 4)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/meutempo_6.jpg" alt="Menu" onclick="openModal('img/meutempo_6.jpg', 'carousel-6', 5)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/meutempo_7.jpg" alt="Menu" onclick="openModal('img/meutempo_7.jpg', 'carousel-6', 6)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/meutempo_8.jpg" alt="Menu" onclick="openModal('img/meutempo_8.jpg', 'carousel-6', 7)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/meutempo_9.jpg" alt="Menu" onclick="openModal('img/meutempo_9.jpg', 'carousel-6', 8)">
+                            </div>
+                            <button class="carousel-arrow carousel-prev" onclick="changeSlide('carousel-6', -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-arrow carousel-next" onclick="changeSlide('carousel-6', 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-nav">
+                                <div class="carousel-dot active" onclick="goToSlide('carousel-6', 0)"></div>
+                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 1)"></div>
+                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 2)"></div>
+                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 3)"></div>
+                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 4)"></div>
+                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 5)"></div>
+                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 6)"></div>
+                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 7)"></div>
+                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 8)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Aplicativo Mobile Produtividade (android)</h3>
+                        <p style= "text-align: justify">Meu Tempo - Controle suas horas de trabalho de forma simples e eficiente. 
+                            Gerencie projetos, acompanhe produtividade e gere relatórios detalhados. 
+                            Perfect para freelancers, equipes e profissionais autônomos..</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">flutter</span>
+                            <span class="portfolio-tag">Dart</span>
+                            <span class="portfolio-tag">Sqlite</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="portfolio-item" data-category="mobile">
                     <div class="portfolio-carousel fixed-height">
                         <div class="carousel-container" id="carousel-1">
@@ -1210,7 +1272,7 @@
                     </div>
                     <div class="portfolio-info">
                         <h3>Portal Escolar</h3>
-                        <p>Sistema de gerênciamento escolar com área administrativa, professores e alunos. Integração com portal de leitura para alunos.</p>
+                        <p  style= "text-align: justify">Sistema de gerênciamento escolar com área administrativa, professores e alunos. Integração com portal de leitura para alunos.</p>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">Gvinci</span>
                             <span class="portfolio-tag">C#</span>
