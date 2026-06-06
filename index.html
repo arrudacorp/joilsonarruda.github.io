@@ -3,184 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joilson Arruda - Desenvolvedor Full Stack</title>
+    <title>Joilson Arruda | Desenvolvedor Full Stack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset e configurações básicas */
+        /* ============ RESET & VARIÁVEIS MODERNAS ============ */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --text-color: #333;
-            --text-light: #777;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #6c5ce7;
+            --accent-light: #a78bfa;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --gradient-1: linear-gradient(135deg, #6c5ce7, #a78bfa);
+            --gradient-2: linear-gradient(135deg, #00b894, #55efc4);
+            --gradient-3: linear-gradient(135deg, #fdcb6e, #f39c12);
+            --gradient-hero: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 30px var(--accent-glow);
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #f9f9f9;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* ============ SCROLLBAR CUSTOM ============ */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+        }
+
+        /* ============ CONTAINER ============ */
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         section {
-            padding: 80px 0;
-        }
-
-        h1, h2, h3 {
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 40px;
+            padding: 100px 0;
             position: relative;
         }
 
-        h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary-color);
-            margin: 10px auto;
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Header e Navegação */
+        /* ============ HEADER MODERNO ============ */
         header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
-            width: 100%;
             top: 0;
+            width: 100%;
             z-index: 1000;
-            transition: all 0.3s;
+            padding: 20px 0;
+            transition: var(--transition);
+            background: transparent;
         }
 
         header.scrolled {
-            padding: 5px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            transition: all 0.3s;
-        }
-
-        header.scrolled nav {
-            padding: 10px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 800;
             text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--secondary-color);
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
+            gap: 35px;
+            align-items: center;
         }
 
         .nav-links a {
+            color: var(--text-secondary);
             text-decoration: none;
-            color: var(--text-color);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: var(--transition);
             position: relative;
+            padding: 5px 0;
         }
 
-        .nav-links a::after {
+        .nav-links a::before {
             content: '';
             position: absolute;
+            bottom: 0;
+            left: 0;
             width: 0;
             height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--secondary-color);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--secondary-color);
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
         }
 
         .menu-toggle {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--text-primary);
         }
 
-        /* Hero Section */
+        /* ============ HERO SECTION ============ */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 150px 0 100px;
-            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-hero);
             position: relative;
             overflow: hidden;
         }
@@ -188,188 +165,352 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            background-position: center;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 184, 148, 0.2) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--accent-light);
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge i {
+            margin-right: 8px;
         }
 
         .hero h1 {
-            color: white;
-            font-size: 3rem;
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
             margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 .highlight {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
         }
 
         .hero-btns {
             display: flex;
-            justify-content: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
-        .hero .btn {
-            background-color: white;
-            color: var(--secondary-color);
+        .btn {
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
         }
 
-        .hero .btn:hover {
-            background-color: var(--light-color);
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: var(--shadow-glow);
         }
 
-        .hero .btn-outline {
-            background-color: transparent;
-            border: 2px solid white;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px var(--accent-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
             color: white;
         }
 
-        .hero .btn-outline:hover {
-            background-color: white;
-            color: var(--secondary-color);
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(108, 92, 231, 0.1);
+            transform: translateY(-3px);
         }
 
-        /* Sobre */
+        /* ============ SOBRE ============ */
         .about {
-            background-color: white;
+            background: var(--bg-secondary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--accent-light);
+            margin-bottom: 60px;
+            font-size: 1.1rem;
         }
 
         .about-content {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
-            gap: 50px;
+        }
+
+        .about-img-wrapper {
+            position: relative;
         }
 
         .about-img {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s;
-        }
-
-        .about-img:hover {
-            transform: scale(1.03);
-        }
-
-        .about-img img {
             width: 100%;
-            height: auto;
-            display: block;
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--border-color);
+            transition: var(--transition);
         }
 
-        .about-text {
-            flex: 1;
+        .about-img-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid var(--accent);
+            border-radius: var(--radius-lg);
+            z-index: -1;
         }
 
-        /* Habilidades */
-        .skills {
-            background-color: #f5f7fa;
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
 
-        .skills-container {
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--glass-bg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--glass-border);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* ============ HABILIDADES ============ */
+        .skills {
+            background: var(--bg-primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
 
-        .skill-category {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
 
-        .skill-category::before {
+        .skill-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            height: 3px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
         }
 
-        .skill-category:hover {
+        .skill-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
         }
 
         .skill-icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
+            font-size: 2.5rem;
             margin-bottom: 20px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        /* Portfólio - CARROSSEL ADICIONADO */
+        .skill-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            padding: 5px 15px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* ============ PORTFÓLIO ============ */
         .portfolio {
-            background-color: white;
+            background: var(--bg-secondary);
         }
 
         .portfolio-filter {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
             gap: 10px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
         }
 
         .filter-btn {
-            padding: 8px 20px;
-            background-color: transparent;
-            border: 1px solid var(--secondary-color);
-            color: var(--secondary-color);
-            border-radius: 30px;
+            padding: 10px 25px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: var(--transition);
+            font-weight: 500;
         }
 
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--secondary-color);
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--accent);
             color: white;
+            border-color: var(--accent);
+            box-shadow: var(--shadow-glow);
         }
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
 
         .portfolio-item {
-            border-radius: 10px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            position: relative;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
         }
 
         .portfolio-item:hover {
             transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
         }
 
-        /* CARROSSEL DE IMAGENS */
         .portfolio-carousel {
             width: 100%;
-            height: 200px;
+            height: 250px;
             position: relative;
             overflow: hidden;
-            background-color: #eee;
+            background: var(--bg-primary);
         }
 
         .carousel-container {
@@ -386,9 +527,6 @@
             height: 100%;
             opacity: 0;
             transition: opacity 0.5s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .carousel-slide.active {
@@ -399,20 +537,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .carousel-slide .slide-icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
+            cursor: pointer;
         }
 
         .carousel-nav {
             position: absolute;
-            bottom: 10px;
-            left: 0;
-            width: 100%;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            justify-content: center;
             gap: 8px;
             z-index: 10;
         }
@@ -421,325 +554,60 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
 
         .carousel-dot.active {
-            background-color: white;
-            transform: scale(1.2);
+            background: white;
+            width: 24px;
+            border-radius: 10px;
         }
 
         .carousel-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             color: white;
             border: none;
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             cursor: pointer;
             z-index: 10;
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
         }
 
         .portfolio-carousel:hover .carousel-arrow {
             opacity: 1;
         }
 
-        .carousel-prev {
-            left: 10px;
-        }
-
-        .carousel-next {
-            right: 10px;
-        }
+        .carousel-prev { left: 10px; }
+        .carousel-next { right: 10px; }
 
         .portfolio-info {
-            padding: 20px;
-            background-color: white;
+            padding: 25px;
         }
 
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-top: 10px;
-        }
-
-        .portfolio-tag {
-            background-color: var(--light-color);
-            color: var(--text-light);
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-        }
-
-        /* MODAL PARA IMAGENS AMPLIADAS */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-        }
-
-        .modal-content img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            z-index: 2001;
-        }
-
-        /* Contato */
-        .contact {
-            background-color: #f5f7fa;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--secondary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .portfolio-info h3 {
             font-size: 1.2rem;
-            transition: transform 0.3s;
+            margin-bottom: 12px;
         }
 
-        .contact-item:hover .contact-icon {
-            transform: scale(1.1);
-        }
-
-        .contact-form {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border 0.3s;
-        }
-
-        .form-control:focus {
-            border-color: var(--secondary-color);
-            outline: none;
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-link:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            margin-top: 20px;
-            color: rgba(255, 255, 255, 0.7);
+        .portfolio-info p {
+            color: var(--text-secondary);
             font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
-        /* Botão Voltar ao Topo */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--secondary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            z-index: 999;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-5px);
-        }
-
-        /* Animações */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        /* Responsividade */
-        @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .about-img, .about-text {
-                flex: none;
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background-color: white;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 50px;
-                transition: left 0.3s;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-btns {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 250px;
-            }
-            
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .carousel-arrow {
-                opacity: 1;
-            }
-        }
-
-         /* MODAL CORRIGIDO */
+        /* ============ MODAL ============ */
         .modal {
             display: none;
             position: fixed;
@@ -747,7 +615,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 2000;
             justify-content: center;
             align-items: center;
@@ -761,214 +629,363 @@
         }
 
         .modal-content {
-            max-width: 95%;
-            max-height: 95%;
+            max-width: 90%;
+            max-height: 90vh;
             position: relative;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
-
-        .modal.active .modal-content {
-            transform: scale(1);
         }
 
         .modal-content img {
             max-width: 100%;
-            max-height: 100%;
+            max-height: 90vh;
             object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: var(--radius-md);
         }
 
         .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
+            position: fixed;
+            top: 25px;
+            right: 35px;
             color: white;
             font-size: 2.5rem;
             cursor: pointer;
             z-index: 2001;
-            background: rgba(0,0,0,0.7);
             width: 50px;
             height: 50px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
-            border: 2px solid white;
+            transition: var(--transition);
         }
 
         .modal-close:hover {
-            background: rgba(255,0,0,0.8);
-            transform: scale(1.1);
+            background: rgba(255, 0, 0, 0.5);
+            transform: rotate(90deg);
         }
 
         .modal-nav {
-            position: absolute;
+            position: fixed;
             top: 50%;
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 0 30px;
             transform: translateY(-50%);
             z-index: 2001;
+            pointer-events: none;
         }
 
         .modal-arrow {
-            background: rgba(0,0,0,0.7);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
             border: none;
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            pointer-events: all;
+            backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            font-size: 1.8rem;
-            transition: all 0.3s;
-            border: 2px solid white;
         }
 
         .modal-arrow:hover {
-            background: var(--secondary-color);
+            background: var(--accent);
             transform: scale(1.1);
         }
 
-        /* Indicador de imagem no modal */
         .modal-counter {
-            position: absolute;
-            bottom: 20px;
+            position: fixed;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             color: white;
-            background: rgba(0,0,0,0.7);
-            padding: 8px 16px;
-            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 20px;
+            border-radius: 50px;
             font-size: 0.9rem;
             z-index: 2001;
         }
 
-        /* OPÇÃO 2: Ajustar altura do carrossel para se adaptar às imagens */
-    .portfolio-carousel {
-        width: 100%;
-        height: auto; /* Altura automática */
-        min-height: 200px; /* Altura mínima */
-        max-height: 300px; /* Altura máxima */
-        position: relative;
-        overflow: hidden;
-        background-color: #eee;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+        /* ============ CONTATO ============ */
+        .contact {
+            background: var(--bg-primary);
+        }
 
-    .carousel-container {
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+        }
 
-    .carousel-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px; /* Espaço ao redor da imagem */
-    }
+        .contact-info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-    .carousel-slide.active {
-        opacity: 1;
-    }
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition);
+        }
 
-    .carousel-slide img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain; /* Imagem completa sem cortar */
-        border-radius: 4px;
-    }
+        .contact-card:hover {
+            border-color: var(--accent);
+            transform: translateX(10px);
+        }
 
-    /* Modal - garantir que mostra imagem completa */
-    .modal-content img {
-        max-width: 100%;
-        max-height: 90vh;
-        object-fit: contain;
-        border-radius: 8px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
+        .contact-card-icon {
+            width: 55px;
+            height: 55px;
+            background: var(--glass-bg);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--accent-light);
+        }
 
-    /* OPÇÃO 3: Layout alternativo - carrossel com altura fixa mas imagem centralizada */
-    .portfolio-carousel.fixed-height {
-        height: 250px; /* Altura fixa */
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
+        .contact-card h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
 
-    .carousel-slide.centered img {
-        width: auto;
-        height: auto;
-        max-width: 90%;
-        max-height: 90%;
-        object-fit: contain;
-    }
+        .contact-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
 
-    /* Indicador de que a imagem está cortada */
-    .carousel-slide::after {
-        content: '🔍 Clique para ver completa';
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(0,0,0,0.7);
-        color: white;
-        padding: 5px 10px;
-        border-radius: 15px;
-        font-size: 0.7rem;
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
+        .contact-form {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+        }
 
-    .carousel-slide:hover::after {
-        opacity: 1;
-    }
+        .form-group {
+            margin-bottom: 25px;
+        }
 
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: var(--bg-secondary);
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ============ BOTÃO VOLTAR AO TOPO ============ */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
+
+        /* ============ ANIMAÇÕES ============ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* ============ RESPONSIVIDADE ============ */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-primary);
+                flex-direction: column;
+                justify-content: center;
+                transition: right 0.3s ease;
+                gap: 40px;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .portfolio-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Header e Navegação -->
+    <!-- Header -->
     <header id="header">
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Joilson<span>Arruda</span></a>
-                <ul class="nav-links">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#skills">Habilidades</a></li>
-                    <li><a href="#portfolio">Portfólio</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
+        <nav>
+            <a href="#" class="logo">JA.</a>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
-                <h1>Joilson Arruda</h1>
-                <p>Desenvolvedor Full Stack em soluções web, mobile e desktop</p>
+            <div class="hero-content fade-in-up">
+                <div class="hero-badge">
+                    <i class="fas fa-code"></i> Disponível para projetos
+                </div>
+                <h1>Transformando ideias em <span class="highlight">soluções digitais</span></h1>
+                <p>Desenvolvedor Full Stack especializado em criar experiências web, mobile e desktop de alto impacto. Clean code, performance e design que converte.</p>
                 <div class="hero-btns">
-                    <a href="#portfolio" class="btn">Ver Trabalhos</a>
-                    <a href="#contact" class="btn btn-outline">Entrar em Contato</a>
+                    <a href="#portfolio" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Ver Portfólio
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-comment"></i> Fale Comigo
+                    </a>
                 </div>
             </div>
         </div>
@@ -977,75 +994,90 @@
     <!-- Sobre -->
     <section class="about" id="about">
         <div class="container">
-            <h2>Sobre Mim</h2>
+            <h2 class="section-title">Sobre Mim</h2>
+            <p class="section-subtitle">Conheça um pouco da minha trajetória</p>
             <div class="about-content">
-                <div class="about-img">
-                    <!-- Imagem de perfil - você pode substituir por uma sua -->
-                    <img src="img/perfil.jpg" alt="Joilson Arruda - Desenvolvedor" height="280px">
+                <div class="about-img-wrapper fade-in-up">
+                    <img src="img/joy_perfil.jpg" alt="Joilson Arruda" class="about-img">
                 </div>
-                <div class="about-text">
-                    <p>Olá! Sou Joilson Arruda, um desenvolvedor com experiência em criar soluções digitais para web, mobile e desktop.</p>
-                    <p>Com formação em Análise e Desenvolvimento de Sistemas e anos de experiência prática, tenho trabalhado em diversos projetos, desde aplicações corporativas até soluções personalizadas para clientes específicos.</p>
-                    <p>Meu objetivo é sempre entregar produtos de alta qualidade, com código limpo, performance otimizada e uma excelente experiência do usuário.</p>
-                    <a href="#contact" class="btn">Entre em Contato</a>
+                <div class="about-text fade-in-up">
+                    <h3>Olá, sou <span style="color: var(--accent-light);">Joilson Arruda</span></h3>
+                    <p>Desenvolvedor Full Stack com paixão por criar soluções que fazem a diferença. Minha jornada na tecnologia começou com a curiosidade de entender como as coisas funcionam, e hoje transformo problemas complexos em aplicações elegantes.</p>
+                    <p>Com formação em Análise e Desenvolvimento de Sistemas e anos de experiência prática, já entreguei dezenas de projetos para clientes satisfeitos, sempre focando em qualidade, performance e experiência do usuário.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projetos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">Clientes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Anos Exp.</div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Vamos conversar
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Habilidades -->
+    <!-- Skills -->
     <section class="skills" id="skills">
         <div class="container">
-            <h2>Minhas Habilidades</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
+            <h2 class="section-title">Tech Stack</h2>
+            <p class="section-subtitle">Tecnologias que domino</p>
+            <div class="skills-grid">
+                <div class="skill-card fade-in-up">
+                    <div class="skill-icon"><i class="fas fa-globe"></i></div>
                     <h3>Desenvolvimento Web</h3>
-                    <p>Criação de sites responsivos, aplicações web, e-commerce e sistemas web completos utilizando as mais modernas tecnologias.</p>
-                    <div class="portfolio-tags">
-                        <span class="portfolio-tag">HTML/CSS</span>
-                        <span class="portfolio-tag">JavaScript</span>
-                        <span class="portfolio-tag">C#</span>
-                        <span class="portfolio-tag">.NET</span>
-                        <span class="portfolio-tag">GVINCI</span>
+                    <p>Criação de sites, aplicações web, e-commerce e sistemas completos com tecnologias modernas e responsivas.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">.NET</span>
+                        <span class="tech-tag">GVINCI</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
+                <div class="skill-card fade-in-up">
+                    <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
                     <h3>Desenvolvimento Mobile</h3>
-                    <p>Desenvolvimento de aplicativos para iOS e Android, com foco em performance e experiência do usuário.</p>
-                    <div class="portfolio-tags">
-                        <span class="portfolio-tag">Dart</span>
-                        <span class="portfolio-tag">Flutter</span>
-                        <span class="portfolio-tag">iOS</span>
-                        <span class="portfolio-tag">Android</span>
+                    <p>Aplicativos nativos para iOS e Android com foco em performance, usabilidade e experiência do usuário.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">iOS</span>
+                        <span class="tech-tag">Android</span>
+                        <span class="tech-tag">SQLite</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-desktop"></i>
-                    </div>
-                    <h3>Desenvolvimento Desktop</h3>
-                    <p>Criação de aplicações desktop para Windows, utilizando tecnologias modernas e frameworks apropriados.</p>
-                    <div class="portfolio-tags">
-                        <span class="portfolio-tag">C#</span>
-                        <span class="portfolio-tag">Java</span>
-                        <span class="portfolio-tag">Delphi</span>
-                        <span class="portfolio-tag">Python</span>
+                <div class="skill-card fade-in-up">
+                    <div class="skill-icon"><i class="fas fa-desktop"></i></div>
+                    <h3>Desktop & APIs</h3>
+                    <p>Aplicações desktop robustas e APIs RESTful escaláveis para integração entre sistemas.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Delphi</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQL Server</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfólio -->
+        <!-- Portfólio -->
     <section class="portfolio" id="portfolio">
         <div class="container">
-            <h2>Meu Portfólio</h2>
+            <h2 class="section-title">Projetos Recentes</h2>
+            <p class="section-subtitle">Alguns trabalhos que desenvolvi</p>
             <div class="portfolio-filter">
                 <button class="filter-btn active" data-filter="all">Todos</button>
                 <button class="filter-btn" data-filter="web">Web</button>
@@ -1053,464 +1085,471 @@
                 <button class="filter-btn" data-filter="api">API</button>
             </div>
             <div class="portfolio-grid">
-                <!-- Projeto 1 - CORRIGIDO -->
-                <div class="portfolio-item" data-category="mobile">
-                    <div class="portfolio-carousel fixed-height">
-                        <div class="carousel-container" id="carousel-6">
-                            <div class="carousel-slide active">
-                                <img src="img/meutempo_1.jpg" alt="Login" onclick="openModal('img/meutempo_1.jpg', 'carousel-6', 0)">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="img/meutempo_2.jpg" alt="Formulario" onclick="openModal('img/meutempo_2.jpg', 'carousel-6', 1)">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="img/meutempo_3.jpg" alt="Menu" onclick="openModal('img/meutempo_3.jpg', 'carousel-6', 2)">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="img/meutempo_4.jpg" alt="Menu" onclick="openModal('img/meutempo_4.jpg', 'carousel-6', 3)">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="img/meutempo_5.jpg" alt="Menu" onclick="openModal('img/meutempo_5.jpg', 'carousel-6', 4)">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="img/meutempo_6.jpg" alt="Menu" onclick="openModal('img/meutempo_6.jpg', 'carousel-6', 5)">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="img/meutempo_7.jpg" alt="Menu" onclick="openModal('img/meutempo_7.jpg', 'carousel-6', 6)">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="img/meutempo_8.jpg" alt="Menu" onclick="openModal('img/meutempo_8.jpg', 'carousel-6', 7)">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="img/meutempo_9.jpg" alt="Menu" onclick="openModal('img/meutempo_9.jpg', 'carousel-6', 8)">
-                            </div>
-                            <button class="carousel-arrow carousel-prev" onclick="changeSlide('carousel-6', -1)">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="carousel-arrow carousel-next" onclick="changeSlide('carousel-6', 1)">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            <div class="carousel-nav">
-                                <div class="carousel-dot active" onclick="goToSlide('carousel-6', 0)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 1)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 2)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 3)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 4)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 5)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 6)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 7)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-6', 8)"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Aplicativo Mobile Produtividade (android)</h3>
-                        <p style= "text-align: justify">Meu Tempo - Controle suas horas de trabalho de forma simples e eficiente. 
-                            Gerencie projetos, acompanhe produtividade e gere relatórios detalhados. 
-                            Perfect para freelancers, equipes e profissionais autônomos..</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">flutter</span>
-                            <span class="portfolio-tag">Dart</span>
-                            <span class="portfolio-tag">Sqlite</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="mobile">
-                    <div class="portfolio-carousel fixed-height">
+                
+                <!-- Projeto 1: Meu Tempo - Mobile -->
+                <div class="portfolio-item fade-in-up" data-category="mobile">
+                    <div class="portfolio-carousel">
                         <div class="carousel-container" id="carousel-1">
                             <div class="carousel-slide active">
-                                <img src="img/risco1.jpg" alt="Login" onclick="openModal('img/risco1.jpg', 'carousel-1', 0)">
+                                <img src="img/meutempo_1.jpg" alt="Meu Tempo App" onclick="openModal('img/meutempo_1.jpg', 'carousel-1', 0)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/risco2.jpg" alt="Formulario" onclick="openModal('img/risco2.jpg', 'carousel-1', 1)">
+                                <img src="img/meutempo_2.jpg" alt="Meu Tempo App" onclick="openModal('img/meutempo_2.jpg', 'carousel-1', 1)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/risco3.jpg" alt="Menu" onclick="openModal('img/risco3.jpg', 'carousel-1', 2)">
+                                <img src="img/meutempo_3.jpg" alt="Meu Tempo App" onclick="openModal('img/meutempo_3.jpg', 'carousel-1', 2)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/risco4.jpg" alt="Menu" onclick="openModal('img/risco4.jpg', 'carousel-1', 3)">
+                                <img src="img/meutempo_4.jpg" alt="Meu Tempo App" onclick="openModal('img/meutempo_4.jpg', 'carousel-1', 3)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/risco5.jpg" alt="Menu" onclick="openModal('img/risco5.jpg', 'carousel-1', 4)">
+                                <img src="img/meutempo_5.jpg" alt="Meu Tempo App" onclick="openModal('img/meutempo_5.jpg', 'carousel-1', 4)">
                             </div>
-                            <button class="carousel-arrow carousel-prev" onclick="changeSlide('carousel-1', -1)">
+                            <div class="carousel-slide">
+                                <img src="img/meutempo_6.jpg" alt="Meu Tempo App" onclick="openModal('img/meutempo_6.jpg', 'carousel-1', 5)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/meutempo_7.jpg" alt="Meu Tempo App" onclick="openModal('img/meutempo_7.jpg', 'carousel-1', 6)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/meutempo_8.jpg" alt="Meu Tempo App" onclick="openModal('img/meutempo_8.jpg', 'carousel-1', 7)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/meutempo_9.jpg" alt="Meu Tempo App" onclick="openModal('img/meutempo_9.jpg', 'carousel-1', 8)">
+                            </div>
+                            <button class="carousel-arrow carousel-prev" onclick="event.stopPropagation(); changeSlide('carousel-1', -1)">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
-                            <button class="carousel-arrow carousel-next" onclick="changeSlide('carousel-1', 1)">
+                            <button class="carousel-arrow carousel-next" onclick="event.stopPropagation(); changeSlide('carousel-1', 1)">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                             <div class="carousel-nav">
-                                <div class="carousel-dot active" onclick="goToSlide('carousel-1', 0)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-1', 1)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-1', 2)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-1', 3)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-1', 4)"></div>
+                                <div class="carousel-dot active" onclick="event.stopPropagation(); goToSlide('carousel-1', 0)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-1', 1)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-1', 2)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-1', 3)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-1', 4)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-1', 5)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-1', 6)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-1', 7)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-1', 8)"></div>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Aplicativo Mobile Qualificação de Risco (android)</h3>
-                        <p>Aplicativo android para cadastramento familiar e classificar o risco da familia.</p>
-                        <p>Integração com API para sistema web.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">flutter</span>
-                            <span class="portfolio-tag">Dart</span>
-                            <span class="portfolio-tag">Sqlite</span>
+                        <h3>Aplicativo Mobile Produtividade</h3>
+                        <p style="text-align: justify">Meu Tempo - Controle suas horas de trabalho de forma simples e eficiente. Gerencie projetos, acompanhe produtividade e gere relatórios detalhados. Perfeito para freelancers, equipes e profissionais autônomos.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">SQLite</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-carousel fixed-height">
-                        <div class="carousel-container" id="carousel-7">
+                <!-- Projeto 2: Qualificação de Risco - Mobile -->
+                <div class="portfolio-item fade-in-up" data-category="mobile">
+                    <div class="portfolio-carousel">
+                        <div class="carousel-container" id="carousel-2">
                             <div class="carousel-slide active">
-                                <img src="img/queroalugar1.jpeg" alt="Login" onclick="openModal('img/queroalugar1.jpeg', 'carousel-7', 0)">
+                                <img src="img/risco1.jpg" alt="App Risco" onclick="openModal('img/risco1.jpg', 'carousel-2', 0)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/queroalugar2.jpeg" alt="Formulario" onclick="openModal('img/queroalugar2.jpeg', 'carousel-7', 1)">
+                                <img src="img/risco2.jpg" alt="App Risco" onclick="openModal('img/risco2.jpg', 'carousel-2', 1)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/queroalugar3.jpeg" alt="Menu" onclick="openModal('img/queroalugar3.jpeg', 'carousel-7', 2)">
+                                <img src="img/risco3.jpg" alt="App Risco" onclick="openModal('img/risco3.jpg', 'carousel-2', 2)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/queroalugar4.jpeg" alt="Menu" onclick="openModal('img/queroalugar4.jpeg', 'carousel-7', 3)">
+                                <img src="img/risco4.jpg" alt="App Risco" onclick="openModal('img/risco4.jpg', 'carousel-2', 3)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/queroalugar1.jpeg" alt="Menu" onclick="openModal('img/queroalugar5.jpeg', 'carousel-7', 4)">
+                                <img src="img/risco5.jpg" alt="App Risco" onclick="openModal('img/risco5.jpg', 'carousel-2', 4)">
                             </div>
-                            <button class="carousel-arrow carousel-prev" onclick="changeSlide('carousel-7', -1)">
+                            <button class="carousel-arrow carousel-prev" onclick="event.stopPropagation(); changeSlide('carousel-2', -1)">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
-                            <button class="carousel-arrow carousel-next" onclick="changeSlide('carousel-7', 1)">
+                            <button class="carousel-arrow carousel-next" onclick="event.stopPropagation(); changeSlide('carousel-2', 1)">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                             <div class="carousel-nav">
-                                <div class="carousel-dot active" onclick="goToSlide('carousel-7', 0)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-7', 1)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-7', 2)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-7', 3)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-7', 4)"></div>
+                                <div class="carousel-dot active" onclick="event.stopPropagation(); goToSlide('carousel-2', 0)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-2', 1)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-2', 2)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-2', 3)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-2', 4)"></div>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Plataforma de Locação de imóveis PWA (versão 2)</h3>
-                        <p>Plataforma de classificados de locação de imóveis.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">JavaScript</span>
-                            <span class="portfolio-tag">React</span>
-                            <span class="portfolio-tag">Vue.js</span>
-                            <span class="portfolio-tag">CSS</span>
+                        <h3>App Qualificação de Risco</h3>
+                        <p>Aplicativo Android para cadastramento familiar e classificar o risco da família. Integração com API para sistema web.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">SQLite</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-carousel fixed-height">
-                        <div class="carousel-container" id="carousel-8">
+                <!-- Projeto 3: QueroAlugar PWA v2 - Web -->
+                <div class="portfolio-item fade-in-up" data-category="web">
+                    <div class="portfolio-carousel">
+                        <div class="carousel-container" id="carousel-3">
                             <div class="carousel-slide active">
-                                <img src="img/rifa1.jpeg" alt="Login" onclick="openModal('img/rifa1.jpeg', 'carousel-8', 0)">
+                                <img src="img/queroalugar1.jpeg" alt="QueroAlugar" onclick="openModal('img/queroalugar1.jpeg', 'carousel-3', 0)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/rifa2.jpeg" alt="Formulario" onclick="openModal('img/rifa2.jpeg', 'carousel-8', 1)">
+                                <img src="img/queroalugar2.jpeg" alt="QueroAlugar" onclick="openModal('img/queroalugar2.jpeg', 'carousel-3', 1)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/rifa3.jpeg" alt="Menu" onclick="openModal('img/rifa3.jpeg', 'carousel-8', 2)">
+                                <img src="img/queroalugar3.jpeg" alt="QueroAlugar" onclick="openModal('img/queroalugar3.jpeg', 'carousel-3', 2)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/rifa4.jpeg" alt="Menu" onclick="openModal('img/rifa4.jpeg', 'carousel-8', 3)">
+                                <img src="img/queroalugar4.jpeg" alt="QueroAlugar" onclick="openModal('img/queroalugar4.jpeg', 'carousel-3', 3)">
                             </div>
-                            <button class="carousel-arrow carousel-prev" onclick="changeSlide('carousel-8', -1)">
+                            <div class="carousel-slide">
+                                <img src="img/queroalugar5.jpeg" alt="QueroAlugar" onclick="openModal('img/queroalugar5.jpeg', 'carousel-3', 4)">
+                            </div>
+                            <button class="carousel-arrow carousel-prev" onclick="event.stopPropagation(); changeSlide('carousel-3', -1)">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
-                            <button class="carousel-arrow carousel-next" onclick="changeSlide('carousel-8', 1)">
+                            <button class="carousel-arrow carousel-next" onclick="event.stopPropagation(); changeSlide('carousel-3', 1)">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                             <div class="carousel-nav">
-                                <div class="carousel-dot active" onclick="goToSlide('carousel-8', 0)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-8', 1)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-8', 2)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-8', 3)"></div>
+                                <div class="carousel-dot active" onclick="event.stopPropagation(); goToSlide('carousel-3', 0)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-3', 1)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-3', 2)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-3', 3)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-3', 4)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Plataforma de Locação PWA (v2)</h3>
+                        <p>Plataforma de classificados de locação de imóveis com tecnologia PWA, React e Vue.js.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 4: Rifa Digital - Web -->
+                <div class="portfolio-item fade-in-up" data-category="web">
+                    <div class="portfolio-carousel">
+                        <div class="carousel-container" id="carousel-4">
+                            <div class="carousel-slide active">
+                                <img src="img/rifa1.jpeg" alt="Rifa Digital" onclick="openModal('img/rifa1.jpeg', 'carousel-4', 0)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/rifa2.jpeg" alt="Rifa Digital" onclick="openModal('img/rifa2.jpeg', 'carousel-4', 1)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/rifa3.jpeg" alt="Rifa Digital" onclick="openModal('img/rifa3.jpeg', 'carousel-4', 2)">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/rifa4.jpeg" alt="Rifa Digital" onclick="openModal('img/rifa4.jpeg', 'carousel-4', 3)">
+                            </div>
+                            <button class="carousel-arrow carousel-prev" onclick="event.stopPropagation(); changeSlide('carousel-4', -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-arrow carousel-next" onclick="event.stopPropagation(); changeSlide('carousel-4', 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-nav">
+                                <div class="carousel-dot active" onclick="event.stopPropagation(); goToSlide('carousel-4', 0)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-4', 1)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-4', 2)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-4', 3)"></div>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
                         <h3>Plataforma de Rifa Digital PWA</h3>
-                        <p>Rifa digital com pagamento por PIX com baixa automática e geração de números aleatórios para sorteio.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">JavaScript</span>
-                            <span class="portfolio-tag">React</span>
-                            <span class="portfolio-tag">Vue.js</span>
-                            <span class="portfolio-tag">CSS</span>
+                        <p>Rifa digital com pagamento por PIX, baixa automática e geração de números aleatórios para sorteio.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">CSS</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-carousel fixed-height">
-                        <div class="carousel-container" id="carousel-9">
+                <!-- Projeto 5: Pipeline - Web -->
+                <div class="portfolio-item fade-in-up" data-category="web">
+                    <div class="portfolio-carousel">
+                        <div class="carousel-container" id="carousel-5">
                             <div class="carousel-slide active">
-                                <img src="img/pipeline1.jpeg" alt="Login" onclick="openModal('img/pipeline1.jpeg', 'carousel-9', 0)">
+                                <img src="img/pipeline1.jpeg" alt="Pipeline" onclick="openModal('img/pipeline1.jpeg', 'carousel-5', 0)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/pipeline2.jpeg" alt="Formulario" onclick="openModal('img/pipeline2.jpeg', 'carousel-9', 1)">
+                                <img src="img/pipeline2.jpeg" alt="Pipeline" onclick="openModal('img/pipeline2.jpeg', 'carousel-5', 1)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/pipeline3.jpeg" alt="Menu" onclick="openModal('img/pipeline3.jpeg', 'carousel-9', 2)">
+                                <img src="img/pipeline3.jpeg" alt="Pipeline" onclick="openModal('img/pipeline3.jpeg', 'carousel-5', 2)">
                             </div>
-                            <button class="carousel-arrow carousel-prev" onclick="changeSlide('carousel-9', -1)">
+                            <button class="carousel-arrow carousel-prev" onclick="event.stopPropagation(); changeSlide('carousel-5', -1)">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
-                            <button class="carousel-arrow carousel-next" onclick="changeSlide('carousel-9', 1)">
+                            <button class="carousel-arrow carousel-next" onclick="event.stopPropagation(); changeSlide('carousel-5', 1)">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                             <div class="carousel-nav">
-                                <div class="carousel-dot active" onclick="goToSlide('carousel-9', 0)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-9', 1)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-9', 2)"></div>
+                                <div class="carousel-dot active" onclick="event.stopPropagation(); goToSlide('carousel-5', 0)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-5', 1)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-5', 2)"></div>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
                         <h3>Plataforma de Pipeline PWA</h3>
-                        <p>Pipeline automatizado, pega videos virais do tiktok e publica no short do youtube 
-                            e pega videos virais do youtube e faz download para ser publicado no tiktok.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">JavaScript</span>
-                            <span class="portfolio-tag">Integração API</span>
-                            <span class="portfolio-tag">Automação IA</span>
-                            <span class="portfolio-tag">React</span>
-                            <span class="portfolio-tag">Vue.js</span>
-                            <span class="portfolio-tag">CSS</span>
+                        <p>Pipeline automatizado que captura vídeos virais do TikTok e publica no YouTube Shorts e vice-versa, com integração de IA.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Integração API</span>
+                            <span class="tech-tag">Automação IA</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">CSS</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-carousel fixed-height">
-                        <div class="carousel-container" id="carousel-2">
+                <!-- Projeto 6: ItaClass - Web -->
+                <div class="portfolio-item fade-in-up" data-category="web">
+                    <div class="portfolio-carousel">
+                        <div class="carousel-container" id="carousel-6">
                             <div class="carousel-slide active">
-                                <img src="img/itaclass1.png" alt="Login" onclick="openModal('img/itaclass1.png', 'carousel-2', 0)">
+                                <img src="img/itaclass1.png" alt="ItaClass" onclick="openModal('img/itaclass1.png', 'carousel-6', 0)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/itaclass2.png" alt="Formulario" onclick="openModal('img/itaclass2.png', 'carousel-2', 1)">
+                                <img src="img/itaclass2.png" alt="ItaClass" onclick="openModal('img/itaclass2.png', 'carousel-6', 1)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/itaclass3.png" alt="Menu" onclick="openModal('img/itaclass3.png', 'carousel-2', 2)">
+                                <img src="img/itaclass3.png" alt="ItaClass" onclick="openModal('img/itaclass3.png', 'carousel-6', 2)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/itaclass4.png" alt="Menu" onclick="openModal('img/itaclass4.png', 'carousel-2', 3)">
+                                <img src="img/itaclass4.png" alt="ItaClass" onclick="openModal('img/itaclass4.png', 'carousel-6', 3)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/itaclass5.png" alt="Menu" onclick="openModal('img/itaclass5.png', 'carousel-2', 4)">
+                                <img src="img/itaclass5.png" alt="ItaClass" onclick="openModal('img/itaclass5.png', 'carousel-6', 4)">
                             </div>
-                            <button class="carousel-arrow carousel-prev" onclick="changeSlide('carousel-2', -1)">
+                            <button class="carousel-arrow carousel-prev" onclick="event.stopPropagation(); changeSlide('carousel-6', -1)">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
-                            <button class="carousel-arrow carousel-next" onclick="changeSlide('carousel-2', 1)">
+                            <button class="carousel-arrow carousel-next" onclick="event.stopPropagation(); changeSlide('carousel-6', 1)">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                             <div class="carousel-nav">
-                                <div class="carousel-dot active" onclick="goToSlide('carousel-2', 0)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-2', 1)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-2', 2)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-2', 3)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-2', 4)"></div>
+                                <div class="carousel-dot active" onclick="event.stopPropagation(); goToSlide('carousel-6', 0)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-6', 1)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-6', 2)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-6', 3)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-6', 4)"></div>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Plataforma de Locação de imóveis PWA</h3>
-                        <p>Plataforma de classificados de locação de imóveis.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">Gvinci</span>
-                            <span class="portfolio-tag">C#</span>
-                            <span class="portfolio-tag">SQLSERVER</span>
-                            <span class="portfolio-tag">JavaScript</span>
-                            <span class="portfolio-tag">CSS</span>
+                        <h3>Plataforma de Locação PWA</h3>
+                        <p>Plataforma de classificados de locação de imóveis desenvolvida com Gvinci, C# e SQL Server.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Gvinci</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-carousel fixed-height">
-                        <div class="carousel-container" id="carousel-3">
+                <!-- Projeto 7: SisAgenda - Web -->
+                <div class="portfolio-item fade-in-up" data-category="web">
+                    <div class="portfolio-carousel">
+                        <div class="carousel-container" id="carousel-7">
                             <div class="carousel-slide active">
-                                <img src="img/sisagenda1.png" alt="Login" onclick="openModal('img/sisagenda1.png', 'carousel-3', 0)">
+                                <img src="img/sisagenda1.png" alt="SisAgenda" onclick="openModal('img/sisagenda1.png', 'carousel-7', 0)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/sisagenda2.png" alt="Formulario" onclick="openModal('img/sisagenda2.png', 'carousel-3', 1)">
+                                <img src="img/sisagenda2.png" alt="SisAgenda" onclick="openModal('img/sisagenda2.png', 'carousel-7', 1)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/sisagenda3.png" alt="Menu" onclick="openModal('img/sisagenda3.png', 'carousel-3', 2)">
+                                <img src="img/sisagenda3.png" alt="SisAgenda" onclick="openModal('img/sisagenda3.png', 'carousel-7', 2)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/sisagenda4.png" alt="Menu" onclick="openModal('img/sisagenda4.png', 'carousel-3', 3)">
+                                <img src="img/sisagenda4.png" alt="SisAgenda" onclick="openModal('img/sisagenda4.png', 'carousel-7', 3)">
                             </div>
                             <div class="carousel-slide">
-                                <img src="img/sisagenda5.png" alt="Menu" onclick="openModal('img/sisagenda5.png', 'carousel-3', 4)">
+                                <img src="img/sisagenda5.png" alt="SisAgenda" onclick="openModal('img/sisagenda5.png', 'carousel-7', 4)">
                             </div>
-                            <button class="carousel-arrow carousel-prev" onclick="changeSlide('carousel-3', -1)">
+                            <button class="carousel-arrow carousel-prev" onclick="event.stopPropagation(); changeSlide('carousel-7', -1)">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
-                            <button class="carousel-arrow carousel-next" onclick="changeSlide('carousel-3', 1)">
+                            <button class="carousel-arrow carousel-next" onclick="event.stopPropagation(); changeSlide('carousel-7', 1)">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                             <div class="carousel-nav">
-                                <div class="carousel-dot active" onclick="goToSlide('carousel-3', 0)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-3', 1)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-3', 2)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-3', 3)"></div>
-                                <div class="carousel-dot" onclick="goToSlide('carousel-3', 4)"></div>
+                                <div class="carousel-dot active" onclick="event.stopPropagation(); goToSlide('carousel-7', 0)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-7', 1)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-7', 2)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-7', 3)"></div>
+                                <div class="carousel-dot" onclick="event.stopPropagation(); goToSlide('carousel-7', 4)"></div>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Sistema de Agendamento para Clínicas e Hospitais</h3>
-                        <p>Sistema de agendamento e atendimento para clínicas e hospitais.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">Gvinci</span>
-                            <span class="portfolio-tag">C#</span>
-                            <span class="portfolio-tag">SQLSERVER</span>
-                            <span class="portfolio-tag">JavaScript</span>
-                            <span class="portfolio-tag">CSS</span>
+                        <h3>Sistema de Agendamento</h3>
+                        <p>Sistema de agendamento e atendimento para clínicas e hospitais com gestão completa de consultas.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Gvinci</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-carousel fixed-height">
-                        <div class="carousel-container" id="carousel-4">
+                <!-- Projeto 8: Portal Escolar - Web -->
+                <div class="portfolio-item fade-in-up" data-category="web">
+                    <div class="portfolio-carousel">
+                        <div class="carousel-container" id="carousel-8">
                             <div class="carousel-slide active">
-                                <img src="img/assertiva-web.png" alt="Login" onclick="openModal('img/assertiva-web.png', 'carousel-4', 0)">
+                                <img src="img/assertiva-web.png" alt="Portal Escolar" onclick="openModal('img/assertiva-web.png', 'carousel-8', 0)">
                             </div>
-                            <button class="carousel-arrow carousel-prev" onclick="changeSlide('carousel-4', -1)">
+                            <button class="carousel-arrow carousel-prev" onclick="event.stopPropagation(); changeSlide('carousel-8', -1)">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
-                            <button class="carousel-arrow carousel-next" onclick="changeSlide('carousel-4', 1)">
+                            <button class="carousel-arrow carousel-next" onclick="event.stopPropagation(); changeSlide('carousel-8', 1)">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                             <div class="carousel-nav">
-                                <div class="carousel-dot active" onclick="goToSlide('carousel-4', 0)"></div>
+                                <div class="carousel-dot active" onclick="event.stopPropagation(); goToSlide('carousel-8', 0)"></div>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
                         <h3>Portal Escolar</h3>
-                        <p  style= "text-align: justify">Sistema de gerênciamento escolar com área administrativa, professores e alunos. Integração com portal de leitura para alunos.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">Gvinci</span>
-                            <span class="portfolio-tag">C#</span>
-                            <span class="portfolio-tag">SQLSERVER</span>
-                            <span class="portfolio-tag">JavaScript</span>
-                            <span class="portfolio-tag">CSS</span>
+                        <p style="text-align: justify">Sistema de gerenciamento escolar com área administrativa, professores e alunos. Integração com portal de leitura para alunos.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Gvinci</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="api">
-                    <div class="portfolio-carousel fixed-height">
-                        <div class="carousel-container" id="carousel-5">
+                <!-- Projeto 9: API - API -->
+                <div class="portfolio-item fade-in-up" data-category="api">
+                    <div class="portfolio-carousel">
+                        <div class="carousel-container" id="carousel-9">
                             <div class="carousel-slide active">
-                                <img src="img/imgAPI.jpg" alt="Login" onclick="openModal('img/imgAPI.jpg', 'carousel-5', 0)">
+                                <img src="img/imgAPI.jpg" alt="API Integration" onclick="openModal('img/imgAPI.jpg', 'carousel-9', 0)">
                             </div>
-                            <button class="carousel-arrow carousel-prev" onclick="changeSlide('carousel-5', -1)">
+                            <button class="carousel-arrow carousel-prev" onclick="event.stopPropagation(); changeSlide('carousel-9', -1)">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
-                            <button class="carousel-arrow carousel-next" onclick="changeSlide('carousel-5', 1)">
+                            <button class="carousel-arrow carousel-next" onclick="event.stopPropagation(); changeSlide('carousel-9', 1)">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                             <div class="carousel-nav">
-                                <div class="carousel-dot active" onclick="goToSlide('carousel-5', 0)"></div>
+                                <div class="carousel-dot active" onclick="event.stopPropagation(); goToSlide('carousel-9', 0)"></div>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Criação de API</h3>
-                        <p>API para integração entre aplicativo android e sistema web.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">.NET</span>
-                            <span class="portfolio-tag">C#</span>
-                            <span class="portfolio-tag">SQLSERVER</span>
+                        <h3>Criação de API REST</h3>
+                        <p>API para integração entre aplicativo Android e sistema web com arquitetura RESTful e documentação Swagger.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">.NET</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">Swagger</span>
                         </div>
                     </div>
-                </div>                
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Modal único -->
+    <!-- Modal -->
     <div class="modal" id="imageModal">
         <span class="modal-close" onclick="closeModal()">&times;</span>
         <div class="modal-nav">
-            <button class="modal-arrow modal-prev" onclick="changeModalSlide(-1)">
+            <button class="modal-arrow" onclick="event.stopPropagation(); changeModalSlide(-1)">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="modal-arrow modal-next" onclick="changeModalSlide(1)">
+            <button class="modal-arrow" onclick="event.stopPropagation(); changeModalSlide(1)">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
         <div class="modal-content">
             <img id="modalImage" src="" alt="">
         </div>
-        <div class="modal-counter" id="modalCounter">1 / 3</div>
+        <div class="modal-counter" id="modalCounter">1 / 1</div>
     </div>
 
     <!-- Contato -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2>Entre em Contato</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
+            <h2 class="section-title">Vamos Trabalhar Juntos? </            <p class="section-subtitle">Estou disponível para freelas e projetos</p>
+            <div class="contact-grid">
+                <div class="contact-info-cards fade-in-up">
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
-                            <h3>Email</h3>
+                            <h4>Email</h4>
                             <p>arrudacorp@gmail.com</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
                             <i class="fas fa-phone"></i>
                         </div>
                         <div>
-                            <h3>Telefone</h3>
+                            <h4>WhatsApp</h4>
                             <p>(73) 98820-5987</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
-                            <h3>Localização</h3>
-                            <p>Brasil</p>
+                            <h4>Localização</h4>
+                            <p>Brasil - Remoto</p>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form fade-in-up">
                     <form action="https://formsubmit.co/arrudacorp@gmail.com" method="POST">
-                        <!-- Campos ocultos para configuração -->
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_subject" value="Novo contato do portfólio!">
                         <input type="hidden" name="_next" value="#">
-                        
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Seu Nome" required>
+                            <input type="text" name="name" class="form-control" placeholder="Seu nome completo" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" class="form-control" placeholder="Seu Email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Seu melhor email" required>
                         </div>
                         <div class="form-group">
                             <input type="text" name="subject" class="form-control" placeholder="Assunto" required>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" class="form-control" placeholder="Sua Mensagem" required></textarea>
+                            <textarea name="message" class="form-control" placeholder="Descreva seu projeto ou ideia..." required></textarea>
                         </div>
-                        <button type="submit" class="btn">Enviar Mensagem</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                        </button>
                     </form>
                 </div>
             </div>
@@ -1520,296 +1559,156 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <a href="#" class="logo" style="color: white;">Joilson<span style="color: #3498db;">Arruda</span></a>
+            <div class="footer-logo">Joilson Arruda</div>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/joilson-arruda-665171123" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/arrudacorp/" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="www.linkedin.com/in/joilson-arruda2210" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/arrudacorp/" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
-            <p class="copyright">&copy; 2025 ArrudaCorp. Todos os direitos reservados.</p>
+            <p class="copyright">&copy; 2026 ArrudaCorp. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- Botão Voltar ao Topo -->
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </a>
 
     <script>
-    // Menu Toggle para Mobile
-    document.querySelector('.menu-toggle').addEventListener('click', function() {
-        document.querySelector('.nav-links').classList.toggle('active');
-    });
-
-    // Fechar menu ao clicar em um link (mobile)
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.remove('active');
+        // Menu mobile
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
         });
-    });
 
-    // Filtro do Portfólio
-    document.querySelectorAll('.filter-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
             });
-            
-            this.classList.add('active');
-            
-            const filter = this.getAttribute('data-filter');
-            
-            document.querySelectorAll('.portfolio-item').forEach(item => {
-                if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                    item.style.display = 'block';
-                    item.style.animation = 'fadeIn 0.5s ease forwards';
-                } else {
-                    item.style.display = 'none';
+        });
+
+        // Filtro portfólio
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.dataset.filter;
+                document.querySelectorAll('.portfolio-item').forEach(item => {
+                    item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
                 }
             });
         });
-    });
 
-    // Efeito de scroll suave
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
+        // Header scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            const backToTop = document.getElementById('backToTop');
+            header.classList.toggle('scrolled', window.scrollY > 100);
+            backToTop.classList.toggle('show', window.scrollY > 500);
         });
-    });
 
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-        const header = document.getElementById('header');
-        const backToTop = document.getElementById('backToTop');
-        
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-            backToTop.classList.add('show');
-        } else {
-            header.classList.remove('scrolled');
-            backToTop.classList.remove('show');
-        }
-    });
+        // Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
 
-    // Animações de entrada
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-            }
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease';
+            observer.observe(el);
         });
-    }, observerOptions);
 
-    document.querySelectorAll('section, .skill-category, .portfolio-item').forEach(el => {
-        observer.observe(el);
-    });
-
-    // ========== SISTEMA DE CARROSSEL E MODAL CORRIGIDO ==========
-    
-    // Variáveis globais para controle do modal
-    let currentCarousel = null;
-    let currentSlideIndex = 0;
-
-    // FUNÇÃO PARA MUDAR SLIDE NO CARROSSEL
-    function changeSlide(carouselId, direction) {
-        const carousel = document.getElementById(carouselId);
-        if (!carousel) return;
-        
-        // Parar propagação do evento
-        event.stopPropagation();
-        
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        const dots = carousel.querySelectorAll('.carousel-dot');
-        let currentIndex = 0;
-        
-        // Encontrar o slide ativo atual
-        slides.forEach((slide, index) => {
-            if (slide.classList.contains('active')) {
-                currentIndex = index;
-            }
-        });
-        
-        // Calcular novo índice
-        let newIndex = currentIndex + direction;
-        if (newIndex < 0) newIndex = slides.length - 1;
-        if (newIndex >= slides.length) newIndex = 0;
-        
-        // Atualizar slides
-        slides[currentIndex].classList.remove('active');
-        slides[newIndex].classList.add('active');
-        
-        // Atualizar dots
-        dots[currentIndex].classList.remove('active');
-        dots[newIndex].classList.add('active');
-    }
-
-    // FUNÇÃO PARA IR PARA SLIDE ESPECÍFICO
-    function goToSlide(carouselId, index) {
-        const carousel = document.getElementById(carouselId);
-        if (!carousel) return;
-        
-        // Parar propagação do evento
-        event.stopPropagation();
-        
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        const dots = carousel.querySelectorAll('.carousel-dot');
-        
-        // Remover classe active de todos os slides e dots
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        // Adicionar classe active ao slide e dot selecionado
-        if (slides[index]) slides[index].classList.add('active');
-        if (dots[index]) dots[index].classList.add('active');
-    }
-
-    // FUNÇÃO PARA ABRIR MODAL - VERSÃO CORRIGIDA
-    function openModal(imageSrc, carouselId, slideIndex) {
-        console.log('Abrindo modal - Imagem:', imageSrc);
-        
-        // Parar propagação do evento
-        if (event) event.stopPropagation();
-        
-        const modal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
-        const modalCounter = document.getElementById('modalCounter');
-        
-        // Salvar informações do carrossel atual
-        currentCarousel = document.getElementById(carouselId);
-        currentSlideIndex = slideIndex;
-        
-        if (!currentCarousel) {
-            console.error('Carrossel não encontrado:', carouselId);
-            return;
+        // Sistema de carrossel
+        function changeSlide(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            if (!carousel) return;
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            let current = Array.from(slides).findIndex(s => s.classList.contains('active'));
+            let next = current + direction;
+            if (next < 0) next = slides.length - 1;
+            if (next >= slides.length) next = 0;
+            slides[current].classList.remove('active');
+            slides[next].classList.add('active');
+            dots[current].classList.remove('active');
+            dots[next].classList.add('active');
         }
-        
-        // Definir a imagem atual no modal
-        modalImage.src = imageSrc;
-        
-        // Atualizar contador
-        const totalSlides = currentCarousel.querySelectorAll('.carousel-slide').length;
-        modalCounter.textContent = `${slideIndex + 1} / ${totalSlides}`;
-        
-        // Mostrar o modal
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        console.log('Modal aberto com sucesso. Total de slides:', totalSlides);
-    }
 
-    // FUNÇÃO PARA MUDAR SLIDE NO MODAL
-    function changeModalSlide(direction) {
-        if (!currentCarousel) {
-            console.error('Nenhum carrossel ativo');
-            return;
+        function goToSlide(carouselId, index) {
+            const carousel = document.getElementById(carouselId);
+            if (!carousel) return;
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            if (slides[index]) slides[index].classList.add('active');
+            if (dots[index]) dots[index].classList.add('active');
         }
-        
-        // Parar propagação do evento
-        if (event) event.stopPropagation();
-        
-        const slides = currentCarousel.querySelectorAll('.carousel-slide');
-        const modalImage = document.getElementById('modalImage');
-        const modalCounter = document.getElementById('modalCounter');
-        
-        // Calcular novo índice
-        let newIndex = currentSlideIndex + direction;
-        if (newIndex < 0) newIndex = slides.length - 1;
-        if (newIndex >= slides.length) newIndex = 0;
-        
-        console.log('Mudando para slide:', newIndex);
-        
-        // Encontrar a imagem no novo slide
-        const newSlide = slides[newIndex];
-        const newImage = newSlide.querySelector('img');
-        
-        if (newImage) {
-            // Atualizar imagem no modal
-            modalImage.src = newImage.src;
-            
-            // Atualizar índice atual
-            currentSlideIndex = newIndex;
-            
-            // Atualizar contador
-            modalCounter.textContent = `${newIndex + 1} / ${slides.length}`;
-            
-            // Atualizar também o carrossel principal
-            goToSlide(currentCarousel.id, newIndex);
-            
-            console.log('Slide alterado para:', newImage.src);
+
+        let currentCarousel = null;
+        let currentSlideIndex = 0;
+
+        function openModal(imgSrc, carouselId, slideIndex) {
+            const modal = document.getElementById('imageModal');
+            document.getElementById('modalImage').src = imgSrc;
+            currentCarousel = document.getElementById(carouselId);
+            currentSlideIndex = slideIndex;
+            const total = currentCarousel.querySelectorAll('.carousel-slide').length;
+            document.getElementById('modalCounter').textContent = `${slideIndex + 1} / ${total}`;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
-    }
 
-    // FUNÇÃO PARA FECHAR MODAL
-    function closeModal() {
-        const modal = document.getElementById('imageModal');
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-        
-        // Resetar variáveis
-        currentCarousel = null;
-        currentSlideIndex = 0;
-        
-        console.log('Modal fechado');
-    }
-
-    // EVENT LISTENERS CORRIGIDOS
-    
-    // Fechar modal com tecla ESC
-    document.addEventListener('keydown', function(e) {
-        const modal = document.getElementById('imageModal');
-        
-        if (modal.classList.contains('active')) {
-            if (e.key === 'Escape') {
-                closeModal();
-            } else if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                changeModalSlide(-1);
-            } else if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                changeModalSlide(1);
+        function changeModalSlide(direction) {
+            if (!currentCarousel) return;
+            const slides = currentCarousel.querySelectorAll('.carousel-slide');
+            let next = currentSlideIndex + direction;
+            if (next < 0) next = slides.length - 1;
+            if (next >= slides.length) next = 0;
+            const img = slides[next].querySelector('img');
+            if (img) {
+                document.getElementById('modalImage').src = img.src;
+                currentSlideIndex = next;
+                document.getElementById('modalCounter').textContent = `${next + 1} / ${slides.length}`;
+                goToSlide(currentCarousel.id, next);
             }
         }
-    });
 
-    // Fechar modal APENAS quando clicar no fundo preto (não na imagem ou navegação)
-    document.getElementById('imageModal').addEventListener('click', function(e) {
-        // Verificar se o clique foi diretamente no background do modal
-        if (e.target === this) {
-            closeModal();
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('active');
+            document.body.style.overflow = '';
+            currentCarousel = null;
         }
-    });
 
-    // Garantir que o botão de fechar funcione
-    document.querySelector('.modal-close').addEventListener('click', function(e) {
-        e.stopPropagation();
-        closeModal();
-    });
-
-    // Garantir que a navegação do modal funcione sem fechar
-    document.querySelectorAll('.modal-nav button').forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.stopPropagation();
+        document.addEventListener('keydown', e => {
+            const modal = document.getElementById('imageModal');
+            if (!modal.classList.contains('active')) return;
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') changeModalSlide(-1);
+            if (e.key === 'ArrowRight') changeModalSlide(1);
         });
-    });
 
-    // Verificar se tudo carregou corretamente
-    console.log('Sistema de carrossel e modal carregado e corrigido');
-    console.log('Total de carrosséis:', document.querySelectorAll('.carousel-container').length);
-</script>
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+    </script>
 </body>
 </html>
